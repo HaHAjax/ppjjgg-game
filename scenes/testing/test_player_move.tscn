@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=4 uid="uid://b85jaokqawt4c"]
+
+[ext_resource type="TileSet" uid="uid://cqm73krco1ue4" path="res://resources/temp_tileset.tres" id="1_s63m6"]
+[ext_resource type="PackedScene" uid="uid://b2pb0nn4u3ffl" path="res://scenes/player.tscn" id="2_6qs5p"]
+
+[node name="TestPlayerMove" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wAABAAKAAAAAAD9/wAABAAIAAAAAAD9/wEABAAIAAEAAAD+/wIABAAFAAIAAAD+/wMABAAIAAMAAAD//wMABAAJAAMAAAAAAAMABAAJAAMAAAACAAMABAALAAMAAAABAAMABAAJAAMAAAADAAIABAAJAAMAAAAEAAIABAALAAMAAAAEAAEABAALAAIAAAAEAAAABAALAAAAAAADAAAABAAKAAAAAAACAAAABAAKAAAAAAABAAAABAAKAAAAAAAAAAAABAAKAAAAAAD//wAABAAKAAAAAAD+/wEABAAJAAIAAAD//wIABAAJAAIAAAAAAAIABAAJAAIAAAABAAIABAAJAAIAAAABAAEABAAJAAIAAAD//wEABAAJAAIAAAD9/wIABAAIAAMAAAACAAIABAAGAAIAAAACAAEABAAJAAIAAAAAAAEABAAJAAIAAAADAAEABAAJAAIAAAA=")
+tile_set = ExtResource("1_s63m6")
+
+[node name="Player" parent="." instance=ExtResource("2_6qs5p")]
+position = Vector2(0, -15)
