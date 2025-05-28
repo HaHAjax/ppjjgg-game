@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 6000.0
 @export var jump_force: float = 250.0
 @export var gravity: int = 981
-@export var slide_slowdown_speed: float = 200.0
+@export var slide_slowdown_speed: float = 125.0
 
 var input_move_dir: int = 0
 var input_jump: bool = false
@@ -35,8 +35,6 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if is_moving:
 		move_player(delta)
-	else:
-		velocity.x = 0.0
 	if is_jumping:
 		apply_jump_force()
 	else:
@@ -48,7 +46,7 @@ func _physics_process(delta: float) -> void:
 
 	if slide_lerp_t == 1.0 and not is_ducking: # only here to avoid unneccessary calculations
 		slide_lerp_t = 0.0
-	elif is_ducking and is_moving:
+	elif is_ducking and not is_zero_approx(velocity.x):
 		slide_lerp_t += delta * slide_slowdown_speed
 		slide_lerp_t = clampf(slide_lerp_t, 0.0, 1.0)
 		velocity.x = lerp(velocity.x, 0.0, slide_lerp_t)
@@ -56,6 +54,15 @@ func _physics_process(delta: float) -> void:
 		slide_lerp_t += delta * slide_slowdown_speed
 		slide_lerp_t = clampf(slide_lerp_t, 0.0, 1.0)
 		velocity.x = lerp(velocity.x, 0.0, slide_lerp_t)
+	elif is_ducking and not is_zero_approx(velocity.x) and not is_moving:
+		slide_lerp_t += delta * slide_slowdown_speed
+		slide_lerp_t = clampf(slide_lerp_t, 0.0, 1.0)
+		velocity.x = lerp(velocity.x, 0.0, slide_lerp_t)
+	elif is_moving:
+		slide_lerp_t = 0.0
+	else:
+		slide_lerp_t = 1.0
+		velocity.x = 0.0
 	
 	move_and_slide()
 
@@ -86,4 +93,7 @@ func apply_gravity(delta: float) -> void:
 	if sign(velocity.y) <= 0:
 		velocity.y += gravity * delta
 	elif sign(velocity.y) == 1:
-		velocity.y += (gravity * 2) * delta
+		velocity.y += (gravity * 1.5) * delta
+	
+	if sign(velocity.y) <= 0 and not input_jump:
+		velocity.y *= 0.5 # variable jump height
