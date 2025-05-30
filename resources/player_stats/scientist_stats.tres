@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://bu5h2g5cy2xcd"]
+
+[ext_resource type="Script" uid="uid://dkhesb1600aos" path="res://resources/player_stats/player_stats.gd" id="1_wogcf"]
+
+[resource]
+script = ExtResource("1_wogcf")
+speed = 6000.0
+jump_force = 250.0
+gravity = 981
+slide_slowdown_speed = 125.0
+possess_aim_scalar = 125.0
+metadata/_custom_type_script = "uid://dkhesb1600aos"

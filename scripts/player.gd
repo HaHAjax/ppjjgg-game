@@ -1,13 +1,20 @@
 extends CharacterBody2D
+class_name Player
 
 @export var speed: float = 6000.0
 @export var jump_force: float = 250.0
 @export var gravity: int = 981
 @export var slide_slowdown_speed: float = 125.0
+@export var possess_aim_scalar: float = 125.0
+
+var attributes: Array[AttributeBase] = []
 
 var input_move_dir: int = 0
 var input_jump: bool = false
 var input_duck: bool = false
+var input_toggle_possess: bool = false
+var input_possess_enemy: bool = false
+var input_possess_aim: Vector2 = Vector2.ZERO
 
 var is_ducking: bool :
 	get: return input_duck
@@ -15,10 +22,15 @@ var is_jumping: bool :
 	get: return input_jump and is_on_floor()
 var is_moving: bool :
 	get: return input_move_dir != 0
+var possess_mode: bool = false
+var attempt_possess_enemy: bool :
+	get: return input_possess_enemy and possess_mode
 
 var slide_lerp_t: float = 0.0
+var possess_aim_dir: Vector2 = Vector2.ZERO
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var possess_raycast: RayCast2D = %PossessDetection
 
 
 func _ready() -> void:
@@ -27,12 +39,43 @@ func _ready() -> void:
 
 	slide_slowdown_speed /= 100
 
+	possess_raycast.enabled = false
+
+	SignalBus.enemy_possessed.connect(on_enemy_possessed)
+
 
 func _process(_delta: float) -> void:
-	update_inputs()
+	pass
 
 
 func _physics_process(delta: float) -> void:
+	update_inputs()
+	update_all_movement(delta)
+	if attempt_possess_enemy:
+		possess_raycast.target_position = input_possess_aim.normalized() * possess_aim_scalar
+		possess_raycast.force_raycast_update()
+		if possess_raycast.is_colliding():
+			print("Possess raycast is colliding with: ", possess_raycast.get_collider())
+			if possess_raycast.get_collider() is EnemyBase:
+				print("EnemyBase detected, attempting to possess...")
+				var enemy: EnemyBase = possess_raycast.get_collider()
+				if enemy.is_in_group("possessable"):
+					print("Possessing enemy: ", enemy.name)
+					SignalBus.player_possess_enemy.emit(enemy)
+					possess_mode = false
+					# possess_raycast.force_raycast_update()
+		else:
+			possess_mode = false
+
+
+func on_enemy_possessed(new_attributes: Array[AttributeBase], new_position: Vector2) -> void:
+	attributes.clear()
+	attributes.append_array(new_attributes)
+
+	self.global_position = new_position
+
+
+func update_all_movement(delta: float) -> void:
 	if is_moving:
 		move_player(delta)
 	if is_jumping:
@@ -71,6 +114,11 @@ func update_inputs() -> void:
 	input_move_dir = ceili(Input.get_axis("move_left", "move_right"))
 	input_jump = Input.is_action_pressed("jump")
 	input_duck = Input.is_action_pressed("duck")
+	if Input.is_action_just_pressed("toggle_possess_mode"): possess_mode = not possess_mode
+	input_possess_enemy = Input.is_action_just_pressed("possess_enemy")
+
+	input_possess_aim = get_local_mouse_position()
+	# possess_raycast.target_position = input_possess_aim.normalized() * 1000.0
 
 
 func move_player(delta: float) -> void:

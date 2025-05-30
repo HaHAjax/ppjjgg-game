@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cto0a7iou5sby"]
+
+[ext_resource type="Script" uid="uid://cej6gcoisn4d8" path="res://scripts/enemies/enemy_scientist.gd" id="1_8ecua"]
+[ext_resource type="Texture2D" uid="uid://cnrf2befwkml1" path="res://assets/enemy_1_ground_scientist.png" id="1_tf5im"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db084"]
+size = Vector2(14, 30)
+
+[node name="EnemyScientist" type="CharacterBody2D"]
+script = ExtResource("1_8ecua")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tf5im")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_db084")

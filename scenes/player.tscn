@@ -108,3 +108,7 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_dqkch")
 }
+
+[node name="PossessDetection" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 0)
