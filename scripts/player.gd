@@ -47,6 +47,7 @@ func _ready() -> void:
 	possess_raycast.enabled = false
 
 	SignalBus.enemy_possessed.connect(on_enemy_possessed)
+	SignalBus.door_entered.connect(play_door_animation)
 
 
 func _process(_delta: float) -> void:
@@ -57,6 +58,10 @@ func _physics_process(delta: float) -> void:
 	update_inputs()
 	update_all_movement(delta)
 	attempt_to_possess_enemy()
+
+
+func play_door_animation() -> void:
+	pass
 
 
 func change_sprite_direction() -> void:
