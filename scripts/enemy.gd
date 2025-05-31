@@ -79,3 +79,17 @@ func on_player_possess(enemy: Enemy) -> void:
 	SignalBus.enemy_possessed.emit(attributes, self.global_position) # Emit the signal with our attributes
 
 	self.queue_free()
+
+
+func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint(): return
+	apply_gravity(delta)
+
+
+func apply_gravity(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y += 981 * delta
+	else:
+		velocity.y = 0
+	
+	move_and_slide()
