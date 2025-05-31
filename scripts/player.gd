@@ -1,11 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed: float = 6000.0
-@export var jump_force: float = 250.0
-@export var gravity: int = 981
-@export var slide_slowdown_speed: float = 125.0
-@export var possess_aim_scalar: float = 125.0
+var speed: float = 6000.0
+var jump_force: float = 250.0
+var gravity: int = 981
+var slide_slowdown_speed: float = 125.0
+var possess_aim_scalar: float = 125.0
+
+@export var default_player_stats: PlayerStats
 
 var attributes: Array[AttributeBase] = []
 
@@ -34,6 +36,8 @@ var possess_aim_dir: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
+	set_player_stats(default_player_stats)
+
 	animation_player.current_animation = "duck"
 	animation_player.pause()
 
@@ -68,11 +72,23 @@ func _physics_process(delta: float) -> void:
 			possess_mode = false
 
 
+func set_player_stats(stats: PlayerStats) -> void:
+	speed = stats.speed
+	jump_force = stats.jump_force
+	gravity = stats.gravity
+	slide_slowdown_speed = stats.slide_slowdown_speed
+	possess_aim_scalar = stats.possess_aim_scalar
+
+
 func on_enemy_possessed(new_attributes: Array[AttributeBase], new_position: Vector2) -> void:
 	attributes.clear()
 	attributes.append_array(new_attributes)
 
 	self.global_position = new_position
+
+	for attribute in attributes:
+		if attribute.player_stats_to_inherit != null:
+			set_player_stats(attribute.player_stats_to_inherit)
 
 
 func update_all_movement(delta: float) -> void:

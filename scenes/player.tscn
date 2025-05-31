@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2pb0nn4u3ffl"]
+[gd_scene load_steps=8 format=3 uid="uid://b2pb0nn4u3ffl"]
 
 [ext_resource type="Script" uid="uid://h4aerfiabd1b" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://cacn0ofvjgygb" path="res://assets/player.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://cacn0ofvjgygb" path="res://assets/characters/player.png" id="2_g2els"]
+[ext_resource type="Resource" uid="uid://bwpro0rfrcmr" path="res://resources/player_stats/base_stats.tres" id="2_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(14, 18)
@@ -92,7 +93,9 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_g2els")
+default_player_stats = ExtResource("2_qhqgy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_g2els")
@@ -101,7 +104,11 @@ texture = ExtResource("2_g2els")
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
+limit_left = -128
+limit_top = -128
+limit_right = 1000
+limit_bottom = 128
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -113,3 +120,4 @@ libraries = {
 unique_name_in_owner = true
 enabled = false
 target_position = Vector2(0, 0)
+collision_mask = 8

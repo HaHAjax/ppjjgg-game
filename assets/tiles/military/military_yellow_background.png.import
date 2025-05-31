@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn1nfuwgc77he"
-path="res://.godot/imported/military_floor.png-6e63d725a7832bbf70a15c2d81979dfb.ctex"
+uid="uid://bxpmsxe2fxg4d"
+path="res://.godot/imported/military_yellow_background.png-4a59b84004d5ced7e74ab4f7c9e1c715.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/military/military_floor.png"
-dest_files=["res://.godot/imported/military_floor.png-6e63d725a7832bbf70a15c2d81979dfb.ctex"]
+source_file="res://assets/tiles/military/military_yellow_background.png"
+dest_files=["res://.godot/imported/military_yellow_background.png-4a59b84004d5ced7e74ab4f7c9e1c715.ctex"]
 
 [params]
 

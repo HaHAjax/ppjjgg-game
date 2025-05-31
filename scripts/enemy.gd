@@ -4,16 +4,16 @@ class_name Enemy
 ## Base class for all enemies in the game.
 
 enum EnemyType {
-	CHOOSE = 0,
-	MILITARY,
-	SCIENTIST,
-	TOURIST,
-	DRUNK
+	CHOOSE = 0, ## This is a placeholder for the editor to choose an enemy type.
+	MILITARY, ## Military enemy, typically placed in level 1
+	SCIENTIST, ## Scientist enemy, typically placed in level 2
+	TOURIST, ## Tourist enemy, typically placed in level 3
+	DRUNK ## Drunk enemy, typically placed in level 4
 }
 
-@export var type_enemy: EnemyType = EnemyType.CHOOSE
-@export_tool_button("Initialize Enemy", "Callable") var initialize_enemy_button: Callable = _initialize_enemy
-@export var attributes: Array[AttributeBase] = []
+@export var type_enemy: EnemyType = EnemyType.CHOOSE ## The selected enemy type for this enemy instance.
+@export_tool_button("Initialize Enemy", "Callable") var initialize_enemy_button: Callable = _initialize_enemy ## Button to simply initialize the enemy in the editor.
+@export var attributes: Array[AttributeBase] = [] ## Attributes added here will be added to the end of this enemy's attributes array.
 
 var enemy_data_uids: Dictionary = {
 	EnemyType.CHOOSE: null,
@@ -55,9 +55,11 @@ func _initialize_enemy_data() -> void:
 
 
 func _initialize_children_things() -> void:
+	self.name = enemy_data.enemy_name + "Enemy"
 	sprite_node.texture = enemy_data.sprite
 	collision_node.shape = enemy_data.collision_shape
 	collision_node.position = enemy_data.collision_shape_offset
+	attributes.append_array(enemy_data.attributes)
 
 
 func _initialize_children_as_variables() -> void:

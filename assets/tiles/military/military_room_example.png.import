@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh4278ikwicu7"
-path="res://.godot/imported/Floating Island Platform.png-e2e5a12d426aa127fc51b558c2444528.ctex"
+uid="uid://cgeoyn7ihscvm"
+path="res://.godot/imported/military_room_example.png-8d8c75146cac756e396ac52e6a42e48a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/military/Floating Island Platform.png"
-dest_files=["res://.godot/imported/Floating Island Platform.png-e2e5a12d426aa127fc51b558c2444528.ctex"]
+source_file="res://assets/tiles/military/military_room_example.png"
+dest_files=["res://.godot/imported/military_room_example.png-8d8c75146cac756e396ac52e6a42e48a.ctex"]
 
 [params]
 
