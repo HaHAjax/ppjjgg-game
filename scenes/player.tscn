@@ -111,4 +111,5 @@ libraries = {
 
 [node name="PossessDetection" type="RayCast2D" parent="."]
 unique_name_in_owner = true
+enabled = false
 target_position = Vector2(0, 0)

@@ -55,15 +55,15 @@ func _physics_process(delta: float) -> void:
 		possess_raycast.target_position = input_possess_aim.normalized() * possess_aim_scalar
 		possess_raycast.force_raycast_update()
 		if possess_raycast.is_colliding():
-			print("Possess raycast is colliding with: ", possess_raycast.get_collider())
-			if possess_raycast.get_collider() is EnemyBase:
-				print("EnemyBase detected, attempting to possess...")
-				var enemy: EnemyBase = possess_raycast.get_collider()
+			if possess_raycast.get_collider() is Enemy:
+				var enemy: Enemy = possess_raycast.get_collider()
 				if enemy.is_in_group("possessable"):
-					print("Possessing enemy: ", enemy.name)
 					SignalBus.player_possess_enemy.emit(enemy)
 					possess_mode = false
-					# possess_raycast.force_raycast_update()
+				else:
+					possess_mode = false
+			else:
+				possess_mode = false
 		else:
 			possess_mode = false
 

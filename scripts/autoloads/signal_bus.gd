@@ -1,6 +1,6 @@
 extends Node
 
-signal player_possess_enemy(enemy: EnemyBase)
+signal player_possess_enemy(enemy: Enemy)
 signal enemy_possessed(attributes: Array[AttributeBase], global_position: Vector2)
 
 

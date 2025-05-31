@@ -1,17 +1,26 @@
+@tool
 extends CharacterBody2D
-class_name EnemyBase
+class_name Enemy
 ## Base class for all enemies in the game.
 
 var attributes: Array[AttributeBase] = []
 
+enum EnemyType {
+	CHOOSE = 0,
+	MILITARY,
+	SCIENTIST,
+	TOURIST,
+	DRUNK
+}
+
+@export var type_enemy: EnemyType = EnemyType.CHOOSE
+
 
 func _init() -> void:
-	initialize_enemy()
+	_initialize_enemy()
 
 
-## Always call this in _init() of the child class.
-## Initializes the enemy by setting up various things.
-func initialize_enemy() -> void:
+func _initialize_enemy() -> void:
 	_initialize_groups()
 	_initialize_signals()
 	_initialize_attributes()
@@ -29,4 +38,12 @@ func _initialize_groups() -> void:
 
 
 func _initialize_signals() -> void:
-	pass
+	SignalBus.player_possess_enemy.connect(on_player_possess)
+
+
+func on_player_possess(enemy: Enemy) -> void:
+	if enemy != self: return # makes sure we only respond to our own possession
+	
+	SignalBus.enemy_possessed.emit(attributes, self.global_position) # Emit the signal with our attributes
+
+	self.queue_free()
