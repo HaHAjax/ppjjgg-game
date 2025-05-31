@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://cwrseu87t0r0n"]
+
+[ext_resource type="Script" uid="uid://pbxo2pi4gk7r" path="res://scripts/resources/attribute_base.gd" id="1_wrh75"]
+[ext_resource type="Script" uid="uid://bw7vi6iqqgxll" path="res://scripts/resources/enemy_data.gd" id="2_7bcjv"]
+[ext_resource type="Texture2D" uid="uid://dvy7ytmofsaci" path="res://icon.svg" id="3_7bcjv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bcjv"]
+size = Vector2(128, 128)
+
+[resource]
+script = ExtResource("2_7bcjv")
+enemy_name = "Demoman???"
+sprite = ExtResource("3_7bcjv")
+collision_shape = SubResource("RectangleShape2D_7bcjv")
+collision_shape_offset = Vector2(0, 0)
+attributes = Array[ExtResource("1_wrh75")]([])
+metadata/_custom_type_script = "uid://bw7vi6iqqgxll"

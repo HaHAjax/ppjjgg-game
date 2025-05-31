@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AttributeBase" load_steps=3 format=3 uid="uid://rsd4hciqstqr"]
+
+[ext_resource type="Script" uid="uid://pbxo2pi4gk7r" path="res://scripts/resources/attribute_base.gd" id="1_mjslr"]
+[ext_resource type="Resource" uid="uid://db6k3mirp6nr0" path="res://resources/player_stats/tourist_stats.tres" id="1_q2x4r"]
+
+[resource]
+script = ExtResource("1_mjslr")
+player_stats_to_inherit = ExtResource("1_q2x4r")
+metadata/_custom_type_script = "uid://pbxo2pi4gk7r"

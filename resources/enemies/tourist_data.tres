@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://dqgpg7r2trkce"]
+
+[ext_resource type="Script" uid="uid://pbxo2pi4gk7r" path="res://scripts/resources/attribute_base.gd" id="1_fux0o"]
+[ext_resource type="Script" uid="uid://bw7vi6iqqgxll" path="res://scripts/resources/enemy_data.gd" id="2_4vl5d"]
+[ext_resource type="Texture2D" uid="uid://d1ulf2o6v56rx" path="res://assets/characters/enemy_3_tourist.png" id="3_4vl5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jrkg"]
+size = Vector2(12, 28)
+
+[resource]
+script = ExtResource("2_4vl5d")
+enemy_name = "Rando"
+sprite = ExtResource("3_4vl5d")
+collision_shape = SubResource("RectangleShape2D_0jrkg")
+collision_shape_offset = Vector2(0, 0)
+attributes = Array[ExtResource("1_fux0o")]([])
+metadata/_custom_type_script = "uid://bw7vi6iqqgxll"

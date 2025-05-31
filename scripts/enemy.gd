@@ -17,10 +17,10 @@ enum EnemyType {
 
 var enemy_data_uids: Dictionary = {
 	EnemyType.CHOOSE: null,
-	EnemyType.MILITARY: "null",
+	EnemyType.MILITARY: "uid://ddm6i68a2ri6a",
 	EnemyType.SCIENTIST: "uid://dykw5ve8ot8vr",
-	EnemyType.TOURIST: "null",
-	EnemyType.DRUNK: "null"
+	EnemyType.TOURIST: "uid://dqgpg7r2trkce",
+	EnemyType.DRUNK: "uid://cwrseu87t0r0n"
 }
 
 var sprite_node: Sprite2D = Sprite2D.new()
@@ -63,6 +63,7 @@ func _initialize_children_things() -> void:
 	sprite_node.texture = enemy_data.sprite
 	collision_node.shape = enemy_data.collision_shape
 	collision_node.position = enemy_data.collision_shape_offset
+	attributes.clear()
 	attributes.append_array(enemy_data.attributes)
 
 
