@@ -33,6 +33,7 @@ var possess_aim_dir: Vector2 = Vector2.ZERO
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var possess_raycast: RayCast2D = %PossessDetection
+@onready var sprite: Sprite2D = %Sprite2D
 
 
 func _ready() -> void:
@@ -49,12 +50,23 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
+	change_sprite_direction()
 
 
 func _physics_process(delta: float) -> void:
 	update_inputs()
 	update_all_movement(delta)
+	attempt_to_possess_enemy()
+
+
+func change_sprite_direction() -> void:
+	match input_move_dir:
+		-1: sprite.flip_h = true
+		1: sprite.flip_h = false
+		0: pass
+
+
+func attempt_to_possess_enemy() -> void:
 	if attempt_possess_enemy:
 		possess_raycast.target_position = input_possess_aim.normalized() * possess_aim_scalar
 		possess_raycast.force_raycast_update()
