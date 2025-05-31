@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1ulf2o6v56rx"
-path="res://.godot/imported/enemy_tourist.png-b269bef47b494553e13e9d1d1a9968d7.ctex"
+uid="uid://2ewcy16ut61c"
+path="res://.godot/imported/military_platform_left.png-e2881da6d8fafd1d499a7cc18b3b6f69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_tourist.png"
-dest_files=["res://.godot/imported/enemy_tourist.png-b269bef47b494553e13e9d1d1a9968d7.ctex"]
+source_file="res://assets/tiles/military/military_platform_left.png"
+dest_files=["res://.godot/imported/military_platform_left.png-e2881da6d8fafd1d499a7cc18b3b6f69.ctex"]
 
 [params]
 

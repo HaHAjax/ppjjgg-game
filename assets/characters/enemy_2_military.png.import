@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pqkonwdfq8mv"
-path="res://.godot/imported/temp_tileset.png-7b71e255aa5dd1f0856e7a73f618891e.ctex"
+uid="uid://bkjocvb27ecn5"
+path="res://.godot/imported/enemy_2_military.png-10137f8efa4933035ea2ae3b00b74f67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp_tileset.png"
-dest_files=["res://.godot/imported/temp_tileset.png-7b71e255aa5dd1f0856e7a73f618891e.ctex"]
+source_file="res://assets/characters/enemy_2_military.png"
+dest_files=["res://.godot/imported/enemy_2_military.png-10137f8efa4933035ea2ae3b00b74f67.ctex"]
 
 [params]
 

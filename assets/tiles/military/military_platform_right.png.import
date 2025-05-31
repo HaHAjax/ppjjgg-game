@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnrf2befwkml1"
-path="res://.godot/imported/enemy_1_scientist.png-776a84eed12a56961311f241ebcef6bb.ctex"
+uid="uid://csq2fc3eueufg"
+path="res://.godot/imported/military_platform_right.png-42a7b2056766d415f83c387adec3d1dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_1_scientist.png"
-dest_files=["res://.godot/imported/enemy_1_scientist.png-776a84eed12a56961311f241ebcef6bb.ctex"]
+source_file="res://assets/tiles/military/military_platform_right.png"
+dest_files=["res://.godot/imported/military_platform_right.png-42a7b2056766d415f83c387adec3d1dd.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pbxo2pi4gk7r" path="res://scripts/resources/attribute_base.gd" id="1_dpnq7"]
 [ext_resource type="Script" uid="uid://bw7vi6iqqgxll" path="res://scripts/resources/enemy_data.gd" id="2_06tah"]
-[ext_resource type="Texture2D" uid="uid://cnrf2befwkml1" path="res://assets/enemy_1_scientist.png" id="2_dpnq7"]
+[ext_resource type="Texture2D" uid="uid://cnrf2befwkml1" path="res://assets/characters/enemy_1_scientist.png" id="2_dpnq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oiwm2"]
 size = Vector2(14, 30)

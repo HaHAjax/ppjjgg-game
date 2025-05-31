@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2ewcy16ut61c"
-path="res://.godot/imported/military_platform_left.png-f10131293087316df7009ecaa71d23d9.ctex"
+uid="uid://cps60n2nf1v37"
+path="res://.godot/imported/military_background.png-8b4669fac1043d49655acbe1151c7b2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/military_platform_left.png"
-dest_files=["res://.godot/imported/military_platform_left.png-f10131293087316df7009ecaa71d23d9.ctex"]
+source_file="res://assets/tiles/military/military_background.png"
+dest_files=["res://.godot/imported/military_background.png-8b4669fac1043d49655acbe1151c7b2f.ctex"]
 
 [params]
 

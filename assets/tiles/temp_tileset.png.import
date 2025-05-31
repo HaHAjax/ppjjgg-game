@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh4278ikwicu7"
-path="res://.godot/imported/Floating Island Platform.png-5be389792cf9446f49961eb3b2282073.ctex"
+uid="uid://pqkonwdfq8mv"
+path="res://.godot/imported/temp_tileset.png-0ab55809b6891f4cd7f320128a875071.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Floating Island Platform.png"
-dest_files=["res://.godot/imported/Floating Island Platform.png-5be389792cf9446f49961eb3b2282073.ctex"]
+source_file="res://assets/tiles/temp_tileset.png"
+dest_files=["res://.godot/imported/temp_tileset.png-0ab55809b6891f4cd7f320128a875071.ctex"]
 
 [params]
 
