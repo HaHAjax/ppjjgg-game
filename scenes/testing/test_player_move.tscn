@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://cqm73krco1ue4" path="res://resources/temp_tileset.tres" id="1_s63m6"]
 [ext_resource type="PackedScene" uid="uid://b2pb0nn4u3ffl" path="res://scenes/player.tscn" id="2_6qs5p"]
-[ext_resource type="PackedScene" uid="uid://cto0a7iou5sby" path="res://scenes/enemies/enemy_scientist.tscn" id="3_dshfi"]
+[ext_resource type="PackedScene" uid="uid://xivuejrgto0y" path="res://scenes/enemy.tscn" id="3_dshfi"]
 
 [node name="TestPlayerMove" type="Node2D"]
 
@@ -13,5 +13,6 @@ tile_set = ExtResource("1_s63m6")
 [node name="Player" parent="." instance=ExtResource("2_6qs5p")]
 position = Vector2(-1, -22)
 
-[node name="EnemyScientist" parent="." instance=ExtResource("3_dshfi")]
-position = Vector2(70, -16)
+[node name="Enemy" parent="." instance=ExtResource("3_dshfi")]
+position = Vector2(67, -16)
+type_enemy = 2

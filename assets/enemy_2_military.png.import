@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkjocvb27ecn5"
-path="res://.godot/imported/enemy_2_ground_military.png-3c96c891cef0355b2c2d767081cd188a.ctex"
+path="res://.godot/imported/enemy_2_military.png-ebcb669689c3dce1f6475e495379e591.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_2_ground_military.png"
-dest_files=["res://.godot/imported/enemy_2_ground_military.png-3c96c891cef0355b2c2d767081cd188a.ctex"]
+source_file="res://assets/enemy_2_military.png"
+dest_files=["res://.godot/imported/enemy_2_military.png-ebcb669689c3dce1f6475e495379e591.ctex"]
 
 [params]
 

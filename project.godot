@@ -23,6 +23,9 @@ SignalBus="*res://scripts/autoloads/signal_bus.gd"
 
 window/size/viewport_width=512
 window/size/viewport_height=512
+window/size/resizable=false
+window/size/borderless=true
+window/vsync/vsync_mode=0
 
 [global_group]
 
