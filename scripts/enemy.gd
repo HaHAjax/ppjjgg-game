@@ -29,11 +29,6 @@ var collision_node: CollisionShape2D = CollisionShape2D.new()
 var enemy_data: EnemyData = null
 
 
-func _init() -> void:
-	if Engine.is_editor_hint(): return
-	# _initialize_enemy()
-
-
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	_initialize_enemy()
@@ -44,9 +39,9 @@ func _initialize_enemy() -> void:
 	_initialize_children_as_variables()
 	_initialize_enemy_data()
 	if type_enemy != EnemyType.CHOOSE: _initialize_children_things()
-	else: push_error("no enemy type set, fucko")
+	else: push_error("no enemy type set, bucko")
 	if enemy_data != null: _initialize_children_things()
-	else: push_error("no enemy data, fucko")
+	else: push_error("no enemy data, bucko")
 
 
 func _initialize_enemy_data() -> void:
