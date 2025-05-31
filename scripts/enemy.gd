@@ -42,6 +42,15 @@ func _initialize_enemy() -> void:
 	else: push_error("no enemy type set, bucko")
 	if enemy_data != null: _initialize_children_things()
 	else: push_error("no enemy data, bucko")
+	_initialize_collision_stuff()
+
+
+func _initialize_collision_stuff() -> void:
+	self.set_collision_layer_value(2, true)
+	self.set_collision_layer_value(4, true)
+	self.set_collision_mask_value(1, true)
+	self.set_collision_mask_value(2, true)
+
 
 
 func _initialize_enemy_data() -> void:
