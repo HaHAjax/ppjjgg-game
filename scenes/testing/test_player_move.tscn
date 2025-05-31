@@ -21,6 +21,8 @@ tile_map_data = PackedByteArray("AAA2AAcAAQAKAAAAAAA1AAcAAQAKAAAAAAA0AAcAAQAKAAA
 
 [node name="ScientistEnemy" type="CharacterBody2D" parent="."]
 position = Vector2(71, 78)
+collision_layer = 10
+collision_mask = 3
 script = ExtResource("4_dobj0")
 type_enemy = 2
 attributes = Array[ExtResource("5_dobj0")]([ExtResource("6_njom6"), ExtResource("6_njom6")])
