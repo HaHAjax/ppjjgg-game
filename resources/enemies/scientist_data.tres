@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://dykw5ve8ot8vr"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://dykw5ve8ot8vr"]
 
-[ext_resource type="Script" uid="uid://bw7vi6iqqgxll" path="res://resources/enemies/enemy_data.gd" id="1_b0lek"]
+[ext_resource type="Script" uid="uid://pbxo2pi4gk7r" path="res://scripts/resources/attribute_base.gd" id="1_dpnq7"]
+[ext_resource type="Script" uid="uid://bw7vi6iqqgxll" path="res://scripts/resources/enemy_data.gd" id="2_06tah"]
 [ext_resource type="Texture2D" uid="uid://cnrf2befwkml1" path="res://assets/enemy_1_scientist.png" id="2_dpnq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oiwm2"]
 size = Vector2(14, 30)
 
 [resource]
-script = ExtResource("1_b0lek")
+script = ExtResource("2_06tah")
 sprite = ExtResource("2_dpnq7")
 collision_shape = SubResource("RectangleShape2D_oiwm2")
 collision_shape_offset = Vector2(0, 1)
+attributes = Array[ExtResource("1_dpnq7")]([])
 metadata/_custom_type_script = "uid://bw7vi6iqqgxll"
