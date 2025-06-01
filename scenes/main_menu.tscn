@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://dmx3xypgsfi42"]
 
-[ext_resource type="PackedScene" uid="uid://c7cqxv1ckttfv" path="res://scenes/tilemaps/background_layer.tscn" id="1_ekxnf"]
+[ext_resource type="PackedScene" uid="uid://c7cqxv1ckttfv" path="res://scenes/tilemaps/military_background.tscn" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://ieebhhvbh1uw" path="res://assets/ui/title_bg.png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://byehbtfgspvs0" path="res://scripts/main_menu.gd" id="1_rtw2f"]
 [ext_resource type="StyleBox" uid="uid://dtctweaav73jv" path="res://resources/themes/button_hover.tres" id="3_wu84c"]

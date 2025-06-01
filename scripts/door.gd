@@ -5,8 +5,7 @@ class_name Door
 
 enum DoorFloor {
 	CHOOSE = 0,
-	MILITARY1,
-	MILITARY2,
+	MILITARY,
 	LABORATORY,
 	GROUND,
 	UPPER
@@ -35,10 +34,7 @@ func _initialize_door() -> void:
 
 func _initialize_textures() -> void:
 	match type_door:
-		DoorFloor.MILITARY1:
-			door_closed_sprite = load("res://assets/doors/military_door_closed.png") as Texture2D
-			door_open_sprite = load("res://assets/doors/military_door_open.png") as Texture2D
-		DoorFloor.MILITARY2:
+		DoorFloor.MILITARY:
 			door_closed_sprite = load("res://assets/doors/military_door_closed.png") as Texture2D
 			door_open_sprite = load("res://assets/doors/military_door_open.png") as Texture2D
 		DoorFloor.LABORATORY:

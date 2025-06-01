@@ -20,17 +20,15 @@ func _initialize_signals() -> void:
 
 
 func _change_to_in_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/testing/test_player_move.tscn") # change this to level 1 when it's added
+	get_tree().change_scene_to_file("res://scenes/floors/military_floor.tscn") # change this to level 1 when it's added
 	curr_game_state = GameState.IN_GAME
 
 
 func _change_floor(door_entered_from: Door.DoorFloor) -> void:
 	await get_tree().physics_frame
 	match door_entered_from:
-		Door.DoorFloor.MILITARY1:
+		Door.DoorFloor.MILITARY:
 			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-			pass # load second military floor
-		Door.DoorFloor.MILITARY2:
 			pass # load lab floor
 		Door.DoorFloor.LABORATORY:
 			pass # load ground floor
