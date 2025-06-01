@@ -52,6 +52,7 @@ position = Vector2(-1, 32)
 scale = Vector2(0.658105, 0.658105)
 collision_layer = 11
 collision_mask = 3
+input_pickable = true
 script = ExtResource("4_8tvv3")
 type_enemy = 1
 metadata/_custom_type_script = "uid://bwpfaev60hgw8"

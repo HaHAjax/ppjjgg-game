@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bfsqds3ru4xdr"]
+
+[ext_resource type="StyleBox" uid="uid://dtctweaav73jv" path="res://resources/themes/button_hover.tres" id="1_pnwnc"]
+[ext_resource type="StyleBox" uid="uid://c4y011cnkhqr6" path="res://resources/themes/button_normal.tres" id="2_tjj83"]
+[ext_resource type="StyleBox" uid="uid://euk7qd5iebbi" path="res://resources/themes/button_hover_pressed.tres" id="3_hy68i"]
+[ext_resource type="Texture2D" uid="uid://b4dqlwuxdyrcv" path="res://assets/ui/slider_circle_regular.png" id="4_fme2r"]
+[ext_resource type="Texture2D" uid="uid://dm8okmrjg6i8h" path="res://assets/ui/slider_circle_hover.png" id="5_80vlq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy68i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkgas"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fme2r"]
+bg_color = Color(1, 0.0392157, 0.152941, 1)
+border_color = Color(0.682353, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[resource]
+Button/styles/hover = ExtResource("1_pnwnc")
+Button/styles/normal = ExtResource("2_tjj83")
+Button/styles/pressed = ExtResource("3_hy68i")
+HSlider/icons/grabber = ExtResource("4_fme2r")
+HSlider/icons/grabber_highlight = ExtResource("5_80vlq")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_hy68i")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_wkgas")
+HSlider/styles/slider = SubResource("StyleBoxFlat_fme2r")

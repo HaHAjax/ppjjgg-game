@@ -15,6 +15,10 @@ run/main_scene="uid://dmx3xypgsfi42"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bpvlierykjugf"
+
 [autoload]
 
 SignalBus="*res://scripts/autoloads/signal_bus.gd"
@@ -31,6 +35,7 @@ window/size/viewport_height=512
 window/size/resizable=false
 window/size/borderless=true
 window/vsync/vsync_mode=0
+mouse_cursor/custom_image="uid://elojlqyemdc8"
 
 [global_group]
 

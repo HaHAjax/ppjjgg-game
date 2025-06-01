@@ -34,6 +34,33 @@ func _ready() -> void:
 	_initialize_enemy()
 
 
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint(): return
+# 	_detect_mouse_position()
+
+
+# func _detect_mouse_position() -> void:
+# 	var mouse_position: Vector2 = get_viewport().get_mouse_position()
+
+# 	mouse_position -= get_viewport().get_visible_rect().size / 2
+
+# 	mouse_position.x += collision_node.shape.get_size().x
+
+# 	if abs(global_position.x - mouse_position.x) <= collision_node.shape.get_size().x\
+# 	and abs(global_position.y - mouse_position.y) <= collision_node.shape.get_size().y:
+# 		GameManager.change_mouse_cursor("hover")
+
+
+func _mouse_enter() -> void:
+	if Engine.is_editor_hint(): return
+	GameManager.change_mouse_cursor("hover")
+
+
+func _mouse_exit() -> void:
+	if Engine.is_editor_hint(): return
+	GameManager.change_mouse_cursor("regular")
+
+
 func _initialize_enemy() -> void:
 	if not Engine.is_editor_hint(): _initialize_signals(); _initialize_groups()
 	_initialize_children_as_variables()

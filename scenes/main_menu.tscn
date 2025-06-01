@@ -1,24 +1,17 @@
-[gd_scene load_steps=10 format=4 uid="uid://dmx3xypgsfi42"]
+[gd_scene load_steps=7 format=4 uid="uid://dmx3xypgsfi42"]
 
 [ext_resource type="PackedScene" uid="uid://c7cqxv1ckttfv" path="res://scenes/tilemaps/military_background.tscn" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://ieebhhvbh1uw" path="res://assets/ui/title_bg.png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://byehbtfgspvs0" path="res://scripts/main_menu.gd" id="1_rtw2f"]
-[ext_resource type="StyleBox" uid="uid://dtctweaav73jv" path="res://resources/themes/button_hover.tres" id="3_wu84c"]
-[ext_resource type="StyleBox" uid="uid://c4y011cnkhqr6" path="res://resources/themes/button_normal.tres" id="4_wu84c"]
-[ext_resource type="StyleBox" uid="uid://euk7qd5iebbi" path="res://resources/themes/button_hover_pressed.tres" id="5_8ln24"]
+[ext_resource type="Theme" uid="uid://bfsqds3ru4xdr" path="res://resources/themes/main_menu.tres" id="4_wu84c"]
 
-[sub_resource type="SystemFont" id="SystemFont_l6cm7"]
+[sub_resource type="SystemFont" id="SystemFont_rtw2f"]
 font_names = PackedStringArray("Cursive")
 
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
-font = SubResource("SystemFont_l6cm7")
+font = SubResource("SystemFont_rtw2f")
 font_size = 36
 font_color = Color(0, 0.45098, 1, 1)
-
-[sub_resource type="Theme" id="Theme_8ln24"]
-Button/styles/hover = ExtResource("3_wu84c")
-Button/styles/normal = ExtResource("4_wu84c")
-Button/styles/pressed = ExtResource("5_8ln24")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_rtw2f")
@@ -47,14 +40,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/Title"]
 layout_mode = 0
-anchor_left = 0.25
-anchor_top = 0.125
-anchor_right = 0.75
-anchor_bottom = 0.285156
-offset_left = -32.0
-offset_top = -7.0
-offset_right = 32.0
-offset_bottom = 7.0
+anchor_left = 0.1875
+anchor_top = 0.111328
+anchor_right = 0.8125
+anchor_bottom = 0.298828
 texture = ExtResource("1_l6cm7")
 region_rect = Rect2(0, 0, 128, 128)
 patch_margin_left = 41
@@ -63,6 +52,7 @@ patch_margin_right = 41
 patch_margin_bottom = 41
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/Title"]
 layout_mode = 1
@@ -77,7 +67,7 @@ label_settings = SubResource("LabelSettings_vue75")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Control" parent="UI"]
+[node name="Buttons" type="Control" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,21 +75,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="UI/Button"]
+[node name="Play" type="Button" parent="UI/Buttons"]
 custom_minimum_size = Vector2(189.165, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.6
-anchor_right = 0.5
-anchor_bottom = 0.625
-offset_left = -20.5
-offset_top = -15.5
-offset_right = 20.5
-offset_bottom = 15.5
+anchor_left = 0.323081
+anchor_top = 0.588447
+anchor_right = 0.692544
+anchor_bottom = 0.727119
+offset_left = -3.99951
+offset_top = -62.285
+offset_right = -3.99951
+offset_bottom = -62.285
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_8ln24")
+theme = ExtResource("4_wu84c")
 text = "Play"
 
-[connection signal="pressed" from="UI/Button/Button" to="." method="_on_button_pressed"]
+[node name="Settings" type="Button" parent="UI/Buttons"]
+custom_minimum_size = Vector2(189.165, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.322266
+anchor_top = 0.588447
+anchor_right = 0.693359
+anchor_bottom = 0.727119
+offset_left = -3.582
+offset_top = 55.36
+offset_right = -3.582
+offset_bottom = 55.36
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_wu84c")
+text = "Settings"
+
+[connection signal="pressed" from="UI/Buttons/Play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/Buttons/Settings" to="." method="_on_settings_button_pressed"]

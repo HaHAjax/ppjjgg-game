@@ -97,6 +97,8 @@ func attempt_to_possess_enemy() -> void:
 				possess_mode = false
 		else:
 			possess_mode = false
+	# else:
+	# 	ProjectSettings.set_setting("display/mouse_cursor/custom_image", "res://assets/misc/cursor_regular.png")
 
 
 func set_player_stats(stats: PlayerStats) -> void:
@@ -157,11 +159,10 @@ func update_inputs() -> void:
 	input_move_dir = ceili(Input.get_axis("move_left", "move_right"))
 	input_jump = Input.is_action_pressed("jump")
 	input_duck = Input.is_action_pressed("duck")
-	if Input.is_action_just_pressed("toggle_possess_mode"): possess_mode = not possess_mode
+	if Input.is_action_just_pressed("toggle_possess_mode"): possess_mode = not possess_mode; GameManager.player_possess_mode = possess_mode; GameManager.change_mouse_cursor("regular")
 	input_possess_enemy = Input.is_action_just_pressed("possess_enemy")
 
 	input_possess_aim = get_local_mouse_position()
-	# possess_raycast.target_position = input_possess_aim.normalized() * 1000.0
 
 
 func move_player(delta: float) -> void:
