@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="PPJJGG Game"
-run/main_scene="uid://b85jaokqawt4c"
+run/main_scene="uid://dmx3xypgsfi42"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalBus="*res://scripts/autoloads/signal_bus.gd"
+GameManager="*res://scripts/autoloads/game_manager.gd"
 
 [debug]
 

@@ -5,7 +5,8 @@ class_name Door
 
 enum DoorFloor {
 	CHOOSE = 0,
-	MILITARY,
+	MILITARY1,
+	MILITARY2,
 	LABORATORY,
 	GROUND,
 	UPPER
@@ -34,7 +35,10 @@ func _initialize_door() -> void:
 
 func _initialize_textures() -> void:
 	match type_door:
-		DoorFloor.MILITARY:
+		DoorFloor.MILITARY1:
+			door_closed_sprite = load("res://assets/doors/military_door_closed.png") as Texture2D
+			door_open_sprite = load("res://assets/doors/military_door_open.png") as Texture2D
+		DoorFloor.MILITARY2:
 			door_closed_sprite = load("res://assets/doors/military_door_closed.png") as Texture2D
 			door_open_sprite = load("res://assets/doors/military_door_open.png") as Texture2D
 		DoorFloor.LABORATORY:
@@ -66,6 +70,7 @@ func _initialize_children() -> void:
 		collision_node = $CollisionShape2D
 
 
-func _on_door_entered() -> void:
+func _on_door_entered(body: Node2D) -> void:
+	if not body.name == "Player": return
 	sprite_node.texture = door_open_sprite
-	SignalBus.door_entered.emit(type_door)
+	SignalBus.door_entered.emit(type_door, self)

@@ -30,6 +30,7 @@ var attempt_possess_enemy: bool :
 
 var slide_lerp_t: float = 0.0
 var possess_aim_dir: Vector2 = Vector2.ZERO
+var all_inputs_disabled: bool = false
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var possess_raycast: RayCast2D = %PossessDetection
@@ -51,17 +52,26 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	change_sprite_direction()
+	if not all_inputs_disabled:
+		change_sprite_direction()
 
 
 func _physics_process(delta: float) -> void:
-	update_inputs()
-	update_all_movement(delta)
-	attempt_to_possess_enemy()
+	if not all_inputs_disabled: 
+		update_inputs()
+		update_all_movement(delta)
+		attempt_to_possess_enemy()
 
 
-func play_door_animation() -> void:
-	pass
+func play_door_animation(door_type: Door.DoorFloor, door_node: Door) -> void:
+	all_inputs_disabled = true
+	animation_player.play("door")
+	self.global_position.x = door_node.global_position.x
+	# while not abs(self.global_position.x - door_node.global_position.x) <= 0.25:
+	# 	await get_tree().process_frame
+	# 	self.global_position.x = lerp(self.global_position.x, door_node.global_position.x, get_process_delta_time() * 3.0)
+	await animation_player.animation_finished
+	SignalBus.door_animation_finished.emit(door_type)
 
 
 func change_sprite_direction() -> void:
