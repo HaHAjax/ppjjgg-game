@@ -9,10 +9,10 @@ enum GameState {
 
 var curr_game_state: GameState = GameState.MAIN_MENU
 
-const MAIN_MENU_MUSIC: AudioStream = preload("res://assets/audio/music/Man Down.mp3")
-const IN_GAME_MUSIC: AudioStream = preload("res://assets/audio/music/The Lift.mp3")
-const CUTSCENE_MUSIC: AudioStream = preload("res://assets/audio/music/Intrepid.mp3")
-const END_MUSIC: AudioStream = preload("res://assets/audio/music/Carefree.mp3")
+const MAIN_MENU_MUSIC: AudioStream = preload("res://assets/audio/music/Man_Down.ogg")
+const IN_GAME_MUSIC: AudioStream = preload("res://assets/audio/music/The_Lift.ogg")
+const CUTSCENE_MUSIC: AudioStream = preload("res://assets/audio/music/Intrepid.ogg")
+const END_MUSIC: AudioStream = preload("res://assets/audio/music/Carefree.ogg")
 
 @onready var music_player: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
@@ -31,8 +31,8 @@ func _initialize_audio_players() -> void:
 	add_child(music_player)
 	add_child(sfx_player)
 
-	music_player.bus = "Music"
-	music_player.playback_type = AudioServer.PLAYBACK_TYPE_STREAM
+	music_player.stop()
+	# music_player.bus = "Music"
 	music_player.stream = MAIN_MENU_MUSIC
 	music_player.play()
 
