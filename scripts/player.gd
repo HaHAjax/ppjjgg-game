@@ -81,9 +81,6 @@ func play_door_animation(door_type: Door.DoorFloor, door_node: Door) -> void:
 	all_inputs_disabled = true
 	animation_player.play("door")
 	self.global_position.x = door_node.global_position.x
-	# while not abs(self.global_position.x - door_node.global_position.x) <= 0.25:
-	# 	await get_tree().process_frame
-	# 	self.global_position.x = lerp(self.global_position.x, door_node.global_position.x, get_process_delta_time() * 3.0)
 	await animation_player.animation_finished
 	SignalBus.door_animation_finished.emit(door_type)
 

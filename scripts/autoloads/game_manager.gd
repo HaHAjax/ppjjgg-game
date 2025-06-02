@@ -11,6 +11,7 @@ var curr_game_state: GameState = GameState.MAIN_MENU
 
 const MAIN_MENU_MUSIC: AudioStream = preload("res://assets/audio/music/Man Down.mp3")
 const IN_GAME_MUSIC: AudioStream = preload("res://assets/audio/music/The Lift.mp3")
+const CUTSCENE_MUSIC: AudioStream = preload("res://assets/audio/music/Intrepid.mp3")
 const END_MUSIC: AudioStream = preload("res://assets/audio/music/Carefree.mp3")
 
 @onready var music_player: AudioStreamPlayer = AudioStreamPlayer.new()
@@ -31,6 +32,7 @@ func _initialize_audio_players() -> void:
 	add_child(sfx_player)
 
 	music_player.bus = "Music"
+	music_player.playback_type = AudioServer.PLAYBACK_TYPE_STREAM
 	music_player.stream = MAIN_MENU_MUSIC
 	music_player.play()
 
@@ -70,7 +72,7 @@ func _change_floor(door_entered_from: Door.DoorFloor) -> void:
 		Door.DoorFloor.LABORATORY:
 			load_floor("ground")
 		Door.DoorFloor.GROUND:
-			load_win_scene() # change to the end cutscene when it's ready
+			load_end_cutscene()
 		Door.DoorFloor.UPPER:
 			# THIS FLOOR IS SCRAPPED
 			pass
@@ -91,12 +93,19 @@ func load_win_scene() -> void:
 
 
 func load_end_cutscene() -> void:
-	pass # TODO: add the end cutscene and load it here
+	music_player.stop()
+	get_tree().change_scene_to_file("res://scenes/ending_cutscene.tscn")
+	music_player.stream = CUTSCENE_MUSIC
+	music_player.play()
+	await get_tree().create_timer(10.0).timeout
+	load_win_scene()
 
 
 func load_main_menu() -> void:
+	music_player.stop()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	music_player.stream = MAIN_MENU_MUSIC
+	music_player.play()
 
 
 func open_settings_menu() -> void:

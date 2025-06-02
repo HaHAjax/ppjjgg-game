@@ -100,6 +100,8 @@ func on_player_possess(enemy: Enemy) -> void:
 
 	self.queue_free()
 
+	GameManager.change_mouse_cursor("regular")
+
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint(): return

@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://g36egxfddiyd"]
+[gd_scene load_steps=6 format=3 uid="uid://g36egxfddiyd"]
 
+[ext_resource type="Script" uid="uid://bv3hedgch6mhc" path="res://scripts/end_screen.gd" id="1_jc7ji"]
 [ext_resource type="Texture2D" uid="uid://ieebhhvbh1uw" path="res://assets/ui/title_bg.png" id="1_kq7ac"]
+[ext_resource type="Theme" uid="uid://bfsqds3ru4xdr" path="res://resources/themes/main_menu.tres" id="2_6e1uj"]
 
 [sub_resource type="SystemFont" id="SystemFont_l6cm7"]
 font_names = PackedStringArray("Cursive")
@@ -17,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jc7ji")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -49,3 +52,14 @@ text = "YOU WON!!!"
 label_settings = SubResource("LabelSettings_6e1uj")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 288.0
+offset_right = 407.0
+offset_bottom = 359.0
+theme = ExtResource("2_6e1uj")
+text = "Go back to Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
