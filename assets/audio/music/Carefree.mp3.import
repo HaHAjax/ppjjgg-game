@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://b1vdnnt0qmoj"
+uid="uid://dplgxsisu1qm0"
 path="res://.godot/imported/Carefree.mp3-6cec04b86f6c9588e3d8908a6c8cde2f.mp3str"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Carefree.mp3-6cec04b86f6c9588e3d8908a6c8cde2f
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
