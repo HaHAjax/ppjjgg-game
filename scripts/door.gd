@@ -41,13 +41,10 @@ func _initialize_textures() -> void:
 			door_closed_sprite = load("res://assets/doors/lab_door_closed.png") as Texture2D
 			door_open_sprite = load("res://assets/doors/lab_door_open.png") as Texture2D
 		DoorFloor.GROUND:
-			pass # TODO: add ground door textures
-			# door_closed_sprite = load("res://assets/doors/ground_door_closed.png") as Texture2D
-			# door_open_sprite = load("res://assets/doors/ground_door_open.png") as Texture2D
+			door_closed_sprite = load("res://assets/doors/ground_door_closed.png") as Texture2D
+			door_open_sprite = load("res://assets/doors/ground_door_open.png") as Texture2D
 		DoorFloor.UPPER:
-			pass # TODO: add upper door textures
-			# door_closed_sprite = load("res://assets/doors/upper_door_closed.png") as Texture2D
-			# door_open_sprite = load("res://assets/doors/upper_door_open.png") as Texture2D
+			pass # THIS FLOOR IS SCRAPPED
 		DoorFloor.CHOOSE:
 			push_error("no door type set, bucko")
 			return

@@ -17,6 +17,7 @@ const END_MUSIC: AudioStream = preload("res://assets/audio/music/Carefree.mp3")
 @onready var sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 var player_possess_mode: bool = false
+var curr_floor: Door.DoorFloor = Door.DoorFloor.CHOOSE
 
 
 func _ready() -> void:
@@ -65,8 +66,7 @@ func _change_floor(door_entered_from: Door.DoorFloor) -> void:
 	await get_tree().physics_frame
 	match door_entered_from:
 		Door.DoorFloor.MILITARY:
-			load_win_scene() # here for testing, change to lab floor when it's ready
-			# load_floor("laboratory")
+			load_floor("laboratory")
 		Door.DoorFloor.LABORATORY:
 			load_floor("ground")
 		Door.DoorFloor.GROUND:
@@ -78,10 +78,9 @@ func _change_floor(door_entered_from: Door.DoorFloor) -> void:
 
 func load_floor(floor_to: String) -> void:
 	match floor_to:
-		"military": get_tree().change_scene_to_file("res://scenes/floors/military_floor.tscn")
-		"laboratory": get_tree().change_scene_to_file("res://scenes/floors/laboratory_floor.tscn")
-		"ground": get_tree().change_scene_to_file("res://scenes/floors/ground_floor.tscn")
-		"upper": get_tree().change_scene_to_file("res://scenes/floors/upper_floor.tscn")		
+		"military": get_tree().change_scene_to_file("res://scenes/floors/military_floor.tscn"); curr_floor = Door.DoorFloor.MILITARY
+		"laboratory": get_tree().change_scene_to_file("res://scenes/floors/lab_floor.tscn"); curr_floor = Door.DoorFloor.LABORATORY
+		"ground": get_tree().change_scene_to_file("res://scenes/floors/ground_floor.tscn"); curr_floor = Door.DoorFloor.GROUND
 
 
 func load_win_scene() -> void:

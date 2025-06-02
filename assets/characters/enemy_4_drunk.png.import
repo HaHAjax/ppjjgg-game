@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfows1rxbpf8j"
-path="res://.godot/imported/Background Floor 3 with Door.png-bad5bcfc8dd8f3b6065ac4fdce12b17a.ctex"
+uid="uid://c5ugvnh8ycouq"
+path="res://.godot/imported/enemy_4_drunk.png-a53174d696474906a59a2f788f0c2c21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/doors/Background Floor 3 with Door.png"
-dest_files=["res://.godot/imported/Background Floor 3 with Door.png-bad5bcfc8dd8f3b6065ac4fdce12b17a.ctex"]
+source_file="res://assets/characters/enemy_4_drunk.png"
+dest_files=["res://.godot/imported/enemy_4_drunk.png-a53174d696474906a59a2f788f0c2c21.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ugvnh8ycouq"
-path="res://.godot/imported/Drunk Enemy 4.png-aa4353c1a5370b5a7f727af8ceb2d4de.ctex"
+uid="uid://cfows1rxbpf8j"
+path="res://.godot/imported/ground_door_closed.png-0a47599448dd72e022300104aaf1eb03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Drunk Enemy 4.png"
-dest_files=["res://.godot/imported/Drunk Enemy 4.png-aa4353c1a5370b5a7f727af8ceb2d4de.ctex"]
+source_file="res://assets/doors/ground_door_closed.png"
+dest_files=["res://.godot/imported/ground_door_closed.png-0a47599448dd72e022300104aaf1eb03.ctex"]
 
 [params]
 

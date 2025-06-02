@@ -54,6 +54,20 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not all_inputs_disabled:
 		change_sprite_direction()
+	if GameManager.player_possess_mode != possess_mode:
+		possess_mode = GameManager.player_possess_mode
+	if GameManager.curr_floor == Door.DoorFloor.MILITARY:
+		$Camera2D.zoom = Vector2(2.0, 2.0)
+		$Camera2D.limit_left = -128
+		$Camera2D.limit_top = -128
+		$Camera2D.limit_right = 128
+		$Camera2D.limit_bottom = 128
+	else:
+		$Camera2D.zoom = Vector2.ONE
+		$Camera2D.limit_left = -256
+		$Camera2D.limit_top = -256
+		$Camera2D.limit_right = 256
+		$Camera2D.limit_bottom = 256
 
 
 func _physics_process(delta: float) -> void:
@@ -159,7 +173,10 @@ func update_inputs() -> void:
 	input_move_dir = ceili(Input.get_axis("move_left", "move_right"))
 	input_jump = Input.is_action_pressed("jump")
 	input_duck = Input.is_action_pressed("duck")
-	if Input.is_action_just_pressed("toggle_possess_mode"): possess_mode = not possess_mode; GameManager.player_possess_mode = possess_mode; GameManager.change_mouse_cursor("regular")
+	if Input.is_action_just_pressed("toggle_possess_mode"):
+		possess_mode = not possess_mode
+		GameManager.player_possess_mode = possess_mode
+		GameManager.change_mouse_cursor("regular")
 	input_possess_enemy = Input.is_action_just_pressed("possess_enemy")
 
 	input_possess_aim = get_local_mouse_position()

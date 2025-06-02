@@ -1,3 +1,326 @@
-[gd_scene format=3 uid="uid://dt3vrq584acfg"]
+[gd_scene load_steps=31 format=4 uid="uid://dt3vrq584acfg"]
+
+[ext_resource type="Texture2D" uid="uid://dljv37vrv6x05" path="res://assets/tiles/laboratory/lab_floor_example.png" id="1_jw21e"]
+[ext_resource type="PackedScene" uid="uid://dvtovl76xwqal" path="res://scenes/tilemaps/floor_floors.tscn" id="2_e5mi8"]
+[ext_resource type="Texture2D" uid="uid://3y4v3dafj1t6" path="res://assets/tiles/laboratory/lab_background.png" id="2_k6o1s"]
+[ext_resource type="Texture2D" uid="uid://bvu1ydede8gpl" path="res://assets/tiles/laboratory/lab_bushes.png" id="3_ubxda"]
+[ext_resource type="Script" uid="uid://bwpfaev60hgw8" path="res://scripts/enemy.gd" id="5_1wx5s"]
+[ext_resource type="Script" uid="uid://pbxo2pi4gk7r" path="res://scripts/resources/attribute_base.gd" id="6_yn43a"]
+[ext_resource type="Resource" uid="uid://cjxggkb01awxc" path="res://resources/player_attributes/scientist_attributes.tres" id="7_gtmo0"]
+[ext_resource type="PackedScene" uid="uid://ci0u1fqa1mm7k" path="res://scenes/objects/door.tscn" id="8_1a4sg"]
+[ext_resource type="PackedScene" uid="uid://b2pb0nn4u3ffl" path="res://scenes/player.tscn" id="9_yn43a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wx5s"]
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yn43a"]
+size = Vector2(24, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtmo0"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1a4sg"]
+size = Vector2(24, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqq7l"]
+size = Vector2(192, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wggu7"]
+size = Vector2(24, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avwj5"]
+size = Vector2(72, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6s00s"]
+size = Vector2(24, 352)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_837bn"]
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oouug"]
+size = Vector2(192, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlhlv"]
+size = Vector2(24, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4nvf"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ollpy"]
+size = Vector2(152, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_me3bl"]
+size = Vector2(112, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdh4p"]
+size = Vector2(160, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o1su"]
+size = Vector2(88, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ittwx"]
+size = Vector2(104, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llakm"]
+size = Vector2(48, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46jmh"]
+size = Vector2(24, 255)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lb6q"]
+size = Vector2(24, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbuji"]
+size = Vector2(24, 80)
 
 [node name="LabFloor" type="Node2D"]
+
+[node name="Reference" type="Sprite2D" parent="."]
+scale = Vector2(8, 8)
+texture = ExtResource("1_jw21e")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(8, 8)
+texture = ExtResource("2_k6o1s")
+
+[node name="Bushes" type="Sprite2D" parent="."]
+scale = Vector2(8, 8)
+texture = ExtResource("3_ubxda")
+
+[node name="FloorFloors" parent="." instance=ExtResource("2_e5mi8")]
+tile_map_data = PackedByteArray("AAAZADIAAAABAAAAAAAZADEAAAADAAEAAAAZADAAAAADAAEAAAAZAC8AAAADAAEAAAAZAC4AAAADAAEAAAAZAC0AAAADAAEAAAAZACwAAAADAAEAAAAZACsAAAADAAAAAAAYADIAAAABAAEAAAAYADEAAAABAAEAAAAYADAAAAABAAEAAAAYAC8AAAABAAEAAAAYAC4AAAABAAEAAAAYAC0AAAABAAEAAAAYACwAAAABAAEAAAAYACsAAAACAAEAAAAXADIAAAABAAEAAAAXADEAAAABAAEAAAAXADAAAAABAAEAAAAXAC8AAAABAAEAAAAXAC4AAAABAAEAAAAXAC0AAAABAAEAAAAXACwAAAABAAEAAAAXACsAAAACAAEAAAAWADIAAAABAAEAAAAWADEAAAABAAEAAAAWADAAAAABAAEAAAAWAC8AAAABAAEAAAAWAC4AAAABAAEAAAAWAC0AAAABAAEAAAAWACwAAAABAAEAAAAWACsAAAACAAEAAAAVADIAAAABAAEAAAAVADEAAAABAAEAAAAVADAAAAABAAEAAAAVAC8AAAABAAEAAAAVAC4AAAABAAEAAAAVAC0AAAABAAEAAAAVACwAAAABAAEAAAAVACsAAAACAAEAAAAUADIAAAABAAEAAAAUADEAAAABAAEAAAAUADAAAAABAAEAAAAUAC8AAAABAAEAAAAUAC4AAAABAAEAAAAUAC0AAAABAAEAAAAUACwAAAABAAEAAAAUACsAAAACAAEAAAATADIAAAABAAEAAAATADEAAAABAAEAAAATADAAAAABAAEAAAATAC8AAAABAAEAAAATAC4AAAABAAEAAAATAC0AAAABAAEAAAATACwAAAABAAEAAAATACsAAAACAAEAAAASADIAAAABAAEAAAASADEAAAABAAEAAAASADAAAAABAAEAAAASAC8AAAABAAEAAAASAC4AAAABAAEAAAASAC0AAAABAAEAAAASACwAAAABAAEAAAASACsAAAACAAEAAAARADIAAAABAAEAAAARADEAAAABAAEAAAARADAAAAABAAEAAAARAC8AAAABAAEAAAARAC4AAAABAAEAAAARAC0AAAABAAEAAAARACwAAAABAAEAAAARACsAAAACAAEAAAAQADIAAAABAAEAAAAQADEAAAABAAEAAAAQADAAAAABAAEAAAAQAC8AAAABAAEAAAAQAC4AAAABAAEAAAAQAC0AAAABAAEAAAAQACwAAAABAAEAAAAQACsAAAACAAEAAAAPADIAAAABAAEAAAAPADEAAAABAAEAAAAPADAAAAABAAEAAAAPAC8AAAABAAEAAAAPAC4AAAABAAEAAAAPAC0AAAABAAEAAAAPACwAAAABAAEAAAAPACsAAAACAAEAAAAOADIAAAABAAEAAAAOADEAAAABAAEAAAAOADAAAAABAAEAAAAOAC8AAAABAAEAAAAOAC4AAAABAAEAAAAOAC0AAAABAAEAAAAOACwAAAABAAEAAAAOACsAAAACAAEAAAANADIAAAABAAEAAAANADEAAAABAAEAAAANADAAAAABAAEAAAANAC8AAAABAAEAAAANAC4AAAABAAEAAAANAC0AAAABAAEAAAANACwAAAABAAEAAAANACsAAAACAAEAAAAMADIAAAABAAEAAAAMADEAAAABAAEAAAAMADAAAAABAAEAAAAMAC8AAAABAAEAAAAMAC4AAAABAAEAAAAMAC0AAAABAAEAAAAMACwAAAABAAEAAAAMACsAAAACAAEAAAALADIAAAABAAEAAAALADEAAAABAAEAAAALADAAAAABAAEAAAALAC8AAAABAAEAAAALAC4AAAABAAEAAAALAC0AAAABAAEAAAALACwAAAABAAEAAAALACsAAAACAAEAAAAKADIAAAABAAEAAAAKADEAAAABAAEAAAAKADAAAAABAAEAAAAKAC8AAAABAAEAAAAKAC4AAAABAAEAAAAKAC0AAAABAAEAAAAKACwAAAABAAEAAAAKACsAAAACAAEAAAAJADIAAAABAAEAAAAJADEAAAABAAEAAAAJADAAAAABAAEAAAAJAC8AAAABAAEAAAAJAC4AAAABAAEAAAAJAC0AAAABAAEAAAAJACwAAAABAAEAAAAJACsAAAACAAEAAAAIADIAAAABAAEAAAAIADEAAAABAAEAAAAIADAAAAABAAEAAAAIAC8AAAABAAEAAAAIAC4AAAABAAEAAAAIAC0AAAABAAEAAAAIACwAAAABAAEAAAAIACsAAAACAAEAAAAHADIAAAABAAEAAAAHADEAAAABAAEAAAAHADAAAAABAAEAAAAHAC8AAAABAAEAAAAHAC4AAAABAAEAAAAHAC0AAAABAAEAAAAHACwAAAABAAEAAAAHACsAAAACAAEAAAAGADIAAAABAAEAAAAGADEAAAABAAEAAAAGADAAAAABAAEAAAAGAC8AAAABAAEAAAAGAC4AAAABAAEAAAAGAC0AAAABAAEAAAAGACwAAAABAAEAAAAGACsAAAACAAEAAAAFADIAAAABAAEAAAAFADEAAAABAAEAAAAFADAAAAABAAEAAAAFAC8AAAABAAEAAAAFAC4AAAABAAEAAAAFAC0AAAABAAEAAAAFACwAAAABAAEAAAAFACsAAAACAAEAAAAEADIAAAABAAEAAAAEADEAAAABAAEAAAAEADAAAAABAAEAAAAEAC8AAAABAAEAAAAEAC4AAAABAAEAAAAEAC0AAAABAAEAAAAEACwAAAABAAEAAAAEACsAAAACAAEAAAADADIAAAABAAEAAAADADEAAAABAAEAAAADADAAAAABAAEAAAADAC8AAAABAAEAAAADAC4AAAABAAEAAAADAC0AAAABAAEAAAADACwAAAABAAEAAAADACsAAAACAAEAAAACADIAAAABAAEAAAACADEAAAABAAEAAAACADAAAAABAAEAAAACAC8AAAABAAEAAAACAC4AAAABAAEAAAACAC0AAAABAAEAAAACACwAAAABAAEAAAACACsAAAACAAEAAAABADIAAAABAAEAAAABADEAAAABAAEAAAABADAAAAABAAEAAAABAC8AAAABAAEAAAABAC4AAAABAAEAAAABAC0AAAABAAEAAAABACwAAAABAAEAAAABACsAAAACAAEAAAAAADIAAAABAAEAAAAAADEAAAABAAEAAAAAADAAAAABAAEAAAAAAC8AAAABAAEAAAAAAC4AAAABAAEAAAAAAC0AAAABAAEAAAAAACwAAAABAAEAAAAAACsAAAACAAEAAAD//zIAAAABAAEAAAD//zEAAAABAAEAAAD//zAAAAABAAEAAAD//y8AAAABAAEAAAD//y4AAAABAAEAAAD//y0AAAABAAEAAAD//ywAAAABAAEAAAD//ysAAAACAAEAAAD+/zIAAAABAAEAAAD+/zEAAAABAAEAAAD+/zAAAAABAAEAAAD+/y8AAAABAAEAAAD+/y4AAAABAAEAAAD+/y0AAAABAAEAAAD+/ywAAAABAAEAAAD+/ysAAAACAAEAAAD9/zIAAAABAAEAAAD9/zEAAAABAAEAAAD9/zAAAAABAAEAAAD9/y8AAAABAAEAAAD9/y4AAAABAAEAAAD9/y0AAAABAAEAAAD9/ywAAAABAAEAAAD9/ysAAAACAAEAAAD8/zIAAAABAAEAAAD8/zEAAAABAAEAAAD8/zAAAAABAAEAAAD8/y8AAAABAAEAAAD8/y4AAAABAAEAAAD8/y0AAAABAAEAAAD8/ywAAAABAAEAAAD8/ysAAAACAAEAAAD7/zIAAAABAAEAAAD7/zEAAAABAAEAAAD7/zAAAAABAAEAAAD7/y8AAAABAAEAAAD7/y4AAAABAAEAAAD7/y0AAAABAAEAAAD7/ywAAAABAAEAAAD7/ysAAAACAAEAAAD6/zIAAAABAAEAAAD6/zEAAAABAAEAAAD6/zAAAAABAAEAAAD6/y8AAAABAAEAAAD6/y4AAAABAAEAAAD6/y0AAAABAAEAAAD6/ywAAAABAAEAAAD6/ysAAAACAAEAAAD5/zIAAAABAAEAAAD5/zEAAAABAAEAAAD5/zAAAAABAAEAAAD5/y8AAAABAAEAAAD5/y4AAAABAAEAAAD5/y0AAAABAAEAAAD5/ywAAAABAAEAAAD5/ysAAAACAAEAAAD4/zIAAAABAAEAAAD4/zEAAAABAAEAAAD4/zAAAAABAAEAAAD4/y8AAAABAAEAAAD4/y4AAAABAAEAAAD4/y0AAAABAAEAAAD4/ywAAAABAAEAAAD4/ysAAAACAAEAAAD3/zIAAAABAAEAAAD3/zEAAAABAAEAAAD3/zAAAAABAAEAAAD3/y8AAAABAAEAAAD3/y4AAAABAAEAAAD3/y0AAAABAAEAAAD3/ywAAAABAAEAAAD3/ysAAAACAAEAAAD2/zIAAAABAAEAAAD2/zEAAAABAAEAAAD2/zAAAAABAAEAAAD2/y8AAAABAAEAAAD2/y4AAAABAAEAAAD2/y0AAAABAAEAAAD2/ywAAAABAAEAAAD2/ysAAAACAAEAAAD1/zIAAAABAAEAAAD1/zEAAAABAAEAAAD1/zAAAAABAAEAAAD1/y8AAAABAAEAAAD1/y4AAAABAAEAAAD1/y0AAAABAAEAAAD1/ywAAAABAAEAAAD1/ysAAAACAAEAAAD0/zIAAAABAAEAAAD0/zEAAAABAAEAAAD0/zAAAAABAAEAAAD0/y8AAAABAAEAAAD0/y4AAAABAAEAAAD0/y0AAAABAAEAAAD0/ywAAAABAAEAAAD0/ysAAAACAAEAAADz/zIAAAABAAEAAADz/zEAAAABAAEAAADz/zAAAAABAAEAAADz/y8AAAABAAEAAADz/y4AAAABAAEAAADz/y0AAAABAAEAAADz/ywAAAABAAEAAADz/ysAAAACAAEAAADy/zIAAAABAAEAAADy/zEAAAABAAEAAADy/zAAAAABAAEAAADy/y8AAAABAAEAAADy/y4AAAABAAEAAADy/y0AAAABAAEAAADy/ywAAAABAAEAAADy/ysAAAACAAEAAADx/zIAAAABAAEAAADx/zEAAAABAAEAAADx/zAAAAABAAEAAADx/y8AAAABAAEAAADx/y4AAAABAAEAAADx/y0AAAABAAEAAADx/ywAAAABAAEAAADx/ysAAAACAAEAAADw/zIAAAABAAEAAADw/zEAAAABAAEAAADw/zAAAAABAAEAAADw/y8AAAABAAEAAADw/y4AAAABAAEAAADw/y0AAAABAAEAAADw/ywAAAABAAEAAADw/ysAAAACAAEAAADv/zIAAAABAAEAAADv/zEAAAABAAEAAADv/zAAAAABAAEAAADv/y8AAAABAAEAAADv/y4AAAABAAEAAADv/y0AAAABAAEAAADv/ywAAAABAAEAAADv/ysAAAACAAEAAADu/zIAAAABAAEAAADu/zEAAAABAAEAAADu/zAAAAABAAEAAADu/y8AAAABAAEAAADu/y4AAAABAAEAAADu/y0AAAABAAEAAADu/ywAAAABAAEAAADu/ysAAAACAAEAAADt/zIAAAABAAEAAADt/zEAAAABAAEAAADt/zAAAAABAAEAAADt/y8AAAABAAEAAADt/y4AAAABAAEAAADt/y0AAAABAAEAAADt/ywAAAABAAEAAADt/ysAAAACAAEAAADs/zIAAAABAAEAAADs/zEAAAABAAEAAADs/zAAAAABAAEAAADs/y8AAAABAAEAAADs/y4AAAABAAEAAADs/y0AAAABAAEAAADs/ywAAAABAAEAAADs/ysAAAACAAEAAADr/zIAAAABAAEAAADr/zEAAAABAAEAAADr/zAAAAABAAEAAADr/y8AAAABAAEAAADr/y4AAAABAAEAAADr/y0AAAABAAEAAADr/ywAAAABAAEAAADr/ysAAAACAAEAAADq/zIAAAABAAEAAADq/zEAAAABAAEAAADq/zAAAAABAAEAAADq/y8AAAABAAEAAADq/y4AAAABAAEAAADq/y0AAAABAAEAAADq/ywAAAABAAEAAADq/ysAAAACAAEAAADp/zIAAAABAAEAAADp/zEAAAABAAEAAADp/zAAAAABAAEAAADp/y8AAAABAAEAAADp/y4AAAABAAEAAADp/y0AAAABAAEAAADp/ywAAAABAAEAAADp/ysAAAACAAEAAADo/zIAAAABAAEAAADo/zEAAAABAAEAAADo/zAAAAABAAEAAADo/y8AAAABAAEAAADo/y4AAAABAAEAAADo/y0AAAABAAEAAADo/ywAAAABAAEAAADo/ysAAAACAAEAAADn/zIAAAABAAEAAADn/zEAAAABAAEAAADn/zAAAAABAAEAAADn/y8AAAABAAEAAADn/y4AAAABAAEAAADn/y0AAAABAAEAAADn/ywAAAABAAEAAADn/ysAAAACAAEAAADm/zIAAAABAAEAAADm/zEAAAABAAEAAADm/zAAAAABAAEAAADm/y8AAAABAAEAAADm/y4AAAABAAEAAADm/y0AAAABAAEAAADm/ywAAAABAAEAAADm/ysAAAACAAEAAADl/zIAAAABAAEAAADl/zEAAAABAAEAAADl/zAAAAABAAEAAADl/y8AAAABAAEAAADl/y4AAAABAAEAAADl/y0AAAABAAEAAADl/ywAAAABAAEAAADl/ysAAAACAAEAAADk/zIAAAABAAEAAADk/zEAAAABAAEAAADk/zAAAAABAAEAAADk/y8AAAABAAEAAADk/y4AAAABAAEAAADk/y0AAAABAAEAAADk/ywAAAABAAEAAADk/ysAAAACAAEAAADj/zIAAAABAAEAAADj/zEAAAABAAEAAADj/zAAAAABAAEAAADj/y8AAAABAAEAAADj/y4AAAABAAEAAADj/y0AAAABAAEAAADj/ywAAAABAAEAAADj/ysAAAACAAEAAADi/zIAAAABAAEAAADi/zEAAAABAAEAAADi/zAAAAABAAEAAADi/y8AAAABAAEAAADi/y4AAAABAAEAAADi/y0AAAABAAEAAADi/ywAAAABAAEAAADi/ysAAAACAAEAAADh/zIAAAABAAEAAADh/zEAAAABAAEAAADh/zAAAAABAAEAAADh/y8AAAABAAEAAADh/y4AAAABAAEAAADh/y0AAAABAAEAAADh/ywAAAABAAEAAADh/ysAAAACAAEAAADg/zIAAAABAAEAAADg/zEAAAABAAEAAADg/zAAAAABAAEAAADg/y8AAAABAAEAAADg/y4AAAABAAEAAADg/y0AAAABAAEAAADg/ywAAAABAAEAAADg/ysAAAACAAEAAADf/zIAAAABAAEAAADf/zEAAAABAAEAAADf/zAAAAABAAEAAADf/y8AAAABAAEAAADf/y4AAAABAAEAAADf/y0AAAABAAEAAADf/ywAAAABAAEAAADf/ysAAAACAAEAAADe/zIAAAABAAEAAADe/zEAAAABAAEAAADe/zAAAAABAAEAAADe/y8AAAABAAEAAADe/y4AAAABAAEAAADe/y0AAAABAAEAAADe/ywAAAABAAEAAADe/ysAAAACAAEAAADd/zIAAAABAAEAAADd/zEAAAABAAEAAADd/zAAAAABAAEAAADd/y8AAAABAAEAAADd/y4AAAABAAEAAADd/y0AAAABAAEAAADd/ywAAAABAAEAAADd/ysAAAACAAEAAADc/zIAAAAEAAEAAADc/zEAAAAFAAAAAADc/zAAAAAFAAAAAADc/y8AAAAFAAAAAADc/y4AAAAFAAAAAADc/y0AAAAFAAAAAADc/ywAAAAFAAAAAADc/ysAAAAEAAAAAAA=")
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-88, 16)
+shape = SubResource("RectangleShape2D_1wx5s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-12, 44)
+shape = SubResource("RectangleShape2D_yn43a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collision"]
+position = Vector2(32, 72)
+shape = SubResource("RectangleShape2D_gtmo0")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collision"]
+position = Vector2(52, 136)
+shape = SubResource("RectangleShape2D_1a4sg")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Collision"]
+position = Vector2(160, 168)
+shape = SubResource("RectangleShape2D_dqq7l")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Collision"]
+position = Vector2(220, 163.5)
+shape = SubResource("RectangleShape2D_wggu7")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Collision"]
+position = Vector2(196, 96)
+shape = SubResource("RectangleShape2D_avwj5")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Collision"]
+position = Vector2(116, -80)
+shape = SubResource("RectangleShape2D_6s00s")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Collision"]
+position = Vector2(192, 40)
+shape = SubResource("RectangleShape2D_837bn")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Collision"]
+position = Vector2(160, -24)
+shape = SubResource("RectangleShape2D_oouug")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Collision"]
+position = Vector2(52, -40)
+shape = SubResource("RectangleShape2D_vlhlv")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Collision"]
+position = Vector2(24, -56)
+shape = SubResource("RectangleShape2D_r4nvf")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-60, -112)
+shape = SubResource("RectangleShape2D_ollpy")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Collision"]
+position = Vector2(48, -240)
+shape = SubResource("RectangleShape2D_me3bl")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-64, -200)
+shape = SubResource("RectangleShape2D_me3bl")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-176, -168)
+shape = SubResource("RectangleShape2D_pdh4p")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-212, 96)
+shape = SubResource("RectangleShape2D_0o1su")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-140, 152)
+shape = SubResource("RectangleShape2D_ittwx")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-232, 8)
+shape = SubResource("RectangleShape2D_llakm")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-244, -47.5)
+shape = SubResource("RectangleShape2D_46jmh")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Collision"]
+position = Vector2(4, -171)
+shape = SubResource("RectangleShape2D_4lb6q")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-148, -88)
+shape = SubResource("RectangleShape2D_dbuji")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-100, 104)
+shape = SubResource("RectangleShape2D_dbuji")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="ScientistEnemy" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(-48, 174)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy2" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(9, 121)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy3" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(-137, 100)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy4" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(-182, 47)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy5" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(-212, -42)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy13" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(-110, -34)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy6" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(-54, -154)
+scale = Vector2(1.435, 1.435)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy7" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(190, 8)
+scale = Vector2(0.935, 0.935)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy8" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(-36, -35)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy9" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(22, 17)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy10" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(142, 113)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy11" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(39, -108)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="ScientistEnemy12" type="CharacterBody2D" parent="Enemies"]
+position = Vector2(161, -75)
+scale = Vector2(2, 2)
+collision_layer = 11
+collision_mask = 3
+script = ExtResource("5_1wx5s")
+type_enemy = 2
+attributes = Array[ExtResource("6_yn43a")]([ExtResource("7_gtmo0")])
+metadata/_custom_type_script = "uid://bwpfaev60hgw8"
+
+[node name="Door" parent="." instance=ExtResource("8_1a4sg")]
+position = Vector2(229, -72)
+scale = Vector2(2, 4)
+type_door = 2
+
+[node name="Player" parent="." instance=ExtResource("9_yn43a")]
+position = Vector2(-241, 190)
+scale = Vector2(2, 2)
